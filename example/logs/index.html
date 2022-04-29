@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日志目录</title>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+   
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+    }
+    .last-color {
+      color: #444;
+      font-weight: 700;
+    }
+    h2{
+      background: rgb(66, 148, 224);
+      display: block;
+      padding: 15px;
+      
+    }
+    h3{
+      font-weight: 500;
+      color: #666;
+      display: block;
+      padding: 10px;
+      padding-left: 15px;
+      background: #f3f3f3;
+
+    }
+    span{
+      color: red;
+      margin-right: 20px;
+    }
+  </style>
+</head>
+<body>
+</body>
+</html>
+<script>
+  const url = '' // 读取的日志文件地址
+   $.getJSON(url, function(configs){
+    const project = configs.project
+    const logs = configs.logs
+    let vdom='';
+    logs.forEach(log => {
+      vdom+= `<h2>应用分支名称：${log.branch}</h2>`
+      console.log(vdom)
+      if (log.lines.length) {
+        log.lines.forEach((line,index) =>{
+        if (log.lines.length === index+1) {
+          vdom += `<h3 class="last-color">发版用户：${line.user} 创建时间：${line.time} <span>最新发版</span></h3>`
+        }else{
+          vdom += `<h3>发版用户：${line.user} 创建时间：${line.time} </h3>`
+        }
+      })
+        
+      }
+    })
+
+      document.body.innerHTML = vdom
+      document.title = `${project}-logs`
+   })
+ 
+</script>
