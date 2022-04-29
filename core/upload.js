@@ -28,6 +28,7 @@ class Upload {
 			localLogsPath: `${localNginxPath}logs`,
 			logsPath: `/home/${packageName}/logs`, // 日志地址
 		});
+		this.runing()
 	}
 	showLog() {
 		const { packageName, reactAppEnv, BaseURL } = this.options;

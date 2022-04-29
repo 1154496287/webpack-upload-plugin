@@ -8,7 +8,6 @@ Upload.prototype.apply = function(compiler) {
      */
     if(this.options.upload) {
       this.handleOpts();
-		  this.runing();
     }
   })
 }
