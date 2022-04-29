@@ -30,12 +30,12 @@ class Upload {
 		});
 	}
 	showLog() {
-		const { packageName, reactAppEnv, host } = this.options;
+		const { packageName, reactAppEnv, BaseURL } = this.options;
 		console.log(colors.green(`前端发版地址：`));
-		console.log(colors.green(`${host}/${packageName}/${reactAppEnv}`));
+		console.log(colors.green(`${BaseURL}/${packageName}/${reactAppEnv}`));
 		console.log(colors.green(`前端发版日志地址：`));
-		console.log(colors.green(`${host}/${packageName}/logs`));
-		open(`${host}/${packageName}/logs`);
+		console.log(colors.green(`${BaseURL}/${packageName}/logs`));
+		open(`${BaseURL}/${packageName}/logs`);
 	}
 	/**
 	 * 执行进程
