@@ -87,9 +87,9 @@ function handleLogLen(files) {
  * 写入文件
  * @param {string} files 日志文件
  */
-function writerLogsFile(files) {
+function writerLogsFile(files,options) {
   return new Promise((resolve, reject) => {
-    const writeFilePath = path.join(__dirname, '/logs/configs.json');
+    const writeFilePath = path.join(options.localLogsPath, '/configs.json');
     fs.writeFile(writeFilePath, JSON.stringify(files), 'utf-8', (err) => {
       if (!err) {
         resolve(true);
@@ -110,7 +110,7 @@ const log = async (options) => {
       const branchName = getBranchName();
       const newLogs = createLogs(branchName, options);
       const files = handleLogLen(newLogs);
-      writerLogsFile(files);
+      writerLogsFile(files,options);
       resolve('create-logs-success');
     } catch (e) {
       reject(`create-logs-err, ${e}`);

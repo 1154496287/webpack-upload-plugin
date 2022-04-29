@@ -11,3 +11,4 @@ Upload.prototype.apply = function(compiler) {
     }
   })
 }
+module.exports = Upload

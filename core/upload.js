@@ -18,7 +18,7 @@ class Upload {
 			reloadNg: 'nginx -s reload',
 		}),
 			(this.options = Object.assign(this.options, opts));
-		
+
 	}
 	handleOpts() {
 		const { packageName, reactAppEnv, localNginxPath } = this.options;
@@ -31,12 +31,12 @@ class Upload {
 		this.runing()
 	}
 	showLog() {
-		const { packageName, reactAppEnv, BaseURL } = this.options;
+		const { packageName, reactAppEnv, baseURL } = this.options;
 		console.log(colors.green(`前端发版地址：`));
-		console.log(colors.green(`${BaseURL}/${packageName}/${reactAppEnv}`));
+		console.log(colors.green(`${baseURL}/${packageName}/${reactAppEnv}`));
 		console.log(colors.green(`前端发版日志地址：`));
-		console.log(colors.green(`${BaseURL}/${packageName}/logs`));
-		open(`${BaseURL}/${packageName}/logs`);
+		console.log(colors.green(`${baseURL}/${packageName}/logs`));
+		open(`${baseURL}/${packageName}/logs`);
 	}
 	/**
 	 * 执行进程
@@ -99,7 +99,7 @@ class Upload {
 		const { username, password, host, nginxFileName, extendNgPath } = this.options;
 		return new Promise((resolve, reject) => {
 			client.scp(
-				`program/${nginxFileName}`,
+				`logs/${nginxFileName}`,
 				`${username}:${password}@${host}:${extendNgPath}/`,
 				(err) => {
 					if (!err) {

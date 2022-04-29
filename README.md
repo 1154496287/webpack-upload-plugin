@@ -13,7 +13,7 @@ const Upload = require('webpack-upload-plugin')
 const path = require('path');
 
 const { REACT_APP_ENV, npm_package_name } = process.env;
-const pathurl = path.join(__dirname);
+const pathurl = path.resolve(__dirname);
 const _nginxUrl = `/${npm_package_name}/${REACT_APP_ENV}`;
 const _Value = `location ${_nginxUrl} {
     alias /home${_nginxUrl}/;
@@ -41,3 +41,8 @@ module.exports = {
   }
 }
 ```
+
+### 注意
+
+- logs 文件要配置在项目根目录
+- 获取根文件地址要用 path.resolve
