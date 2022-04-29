@@ -1,6 +1,6 @@
 {
   "name": "webpack-nginx-upload-plugin",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "测试环境nginx环境部署webpack插件",
   "main": "index.js",
   "scripts": {
