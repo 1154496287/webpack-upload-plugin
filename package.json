@@ -1,0 +1,19 @@
+{
+  "name": "webpack-upload-plugin",
+  "version": "1.0.0",
+  "description": "测试环境nginx环境部署webpack插件",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1154496287/webpack-upload-plugin.git"
+  },
+  "author": "lijinglong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/1154496287/webpack-upload-plugin/issues"
+  },
+  "homepage": "https://github.com/1154496287/webpack-upload-plugin#readme"
+}
