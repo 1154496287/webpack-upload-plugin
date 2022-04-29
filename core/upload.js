@@ -18,8 +18,7 @@ class Upload {
 			reloadNg: 'nginx -s reload',
 		}),
 			(this.options = Object.assign(this.options, opts));
-		this.handleOpts();
-		this.runing();
+		
 	}
 	handleOpts() {
 		const { packageName, reactAppEnv, localNginxPath } = this.options;
@@ -31,12 +30,12 @@ class Upload {
 		});
 	}
 	showLog() {
-		const { packageName, reactAppEnv } = this.options;
+		const { packageName, reactAppEnv, host } = this.options;
 		console.log(colors.green(`前端发版地址：`));
-		console.log(colors.green(`https://yeah.jd.com/${packageName}/${reactAppEnv}`));
+		console.log(colors.green(`${host}/${packageName}/${reactAppEnv}`));
 		console.log(colors.green(`前端发版日志地址：`));
-		console.log(colors.green(`https://yeah.jd.com/${packageName}/logs`));
-		open(`https://yeah.jd.com/${packageName}/logs`);
+		console.log(colors.green(`${host}/${packageName}/logs`));
+		open(`${host}/${packageName}/logs`);
 	}
 	/**
 	 * 执行进程
